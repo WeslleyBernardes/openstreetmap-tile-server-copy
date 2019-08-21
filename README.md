@@ -14,7 +14,7 @@ Next, download an .osm.pbf extract from geofabrik.de for the region that you're 
 docker run \
     -v /absolute/path/to/luxembourg.osm.pbf:/data.osm.pbf \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
-    overv/openstreetmap-tile-server \
+    weslleybernardes/mapp:osm-server \
     import
 ```
 
@@ -29,7 +29,7 @@ docker run \
     -v /absolute/path/to/luxembourg.osm.pbf:/data.osm.pbf \
     -v /absolute/path/to/luxembourg.poly:/data.poly \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
-    overv/openstreetmap-tile-server \
+    weslleybernardes/mapp:osm-server \
     import
 ```
 
@@ -43,7 +43,7 @@ Run the server like this:
 docker run \
     -p 80:80 \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
-    -d overv/openstreetmap-tile-server \
+    -d weslleybernardes/mapp:osm-server \
     run
 ```
 
@@ -59,7 +59,7 @@ docker run \
     -p 80:80 \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
     -v openstreetmap-rendered-tiles:/var/lib/mod_tile \
-    -d overv/openstreetmap-tile-server \
+    -d weslleybernardes/mapp:osm-server \
     run
 ```
 
@@ -73,7 +73,7 @@ docker run \
     -e UPDATES=enabled \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
     -v openstreetmap-rendered-tiles:/var/lib/mod_tile \
-    -d overv/openstreetmap-tile-server \
+    -d weslleybernardes/mapp:osm-server \
     run
 ```
 
@@ -91,7 +91,7 @@ docker run \
     -p 80:80 \
     -e THREADS=24 \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
-    -d overv/openstreetmap-tile-server \
+    -d weslleybernardes/mapp:osm-server \
     run
 ```
 ### AUTOVACUUM
@@ -102,7 +102,7 @@ docker run \
     -p 80:80 \
     -e AUTOVACUUM=off \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
-    -d overv/openstreetmap-tile-server \
+    -d weslleybernardes/mapp:osm-server \
     run
 ```
 ### Benchmarks
@@ -124,7 +124,7 @@ docker run \
     -p 80:80 \
     -v openstreetmap-data:/var/lib/postgresql/10/main \
     --shm-size="192m" \
-    -d overv/openstreetmap-tile-server \
+    -d weslleybernardes/mapp:osm-server \
     run
 ```
 For too high values you may notice excessive CPU load and memory usage. It might be that you will have to experimentally find the best values for yourself.
